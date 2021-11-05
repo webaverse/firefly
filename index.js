@@ -307,7 +307,7 @@ export default () => {
   var demo = new ParticleDemo();
   demo.initScene(app);
 
-  console.log(app.position);
+  //console.log(app.position);
   //console.log(demo);
   //console.log(itemPos);
 
