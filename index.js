@@ -69,14 +69,12 @@ class ParticleDemo {
       group.traverse(object => {
           if (object instanceof ParticleEmitter) {
             //console.log(object.system.particles);
-              for(i=0;i<object.system.particles.length;i++)
-              {
+              for(i=0;i<object.system.particles.length;i++) {
                 //object.system.particles[i].velocity.set(0,0,1);
                 dist = playersPos.distanceTo(object.system.particles[i].position);
-                if (dist < 30)
-                {
-                  object.system.particles[i].velocity.set(0,0,1);
-                  object.system.particles[i].color.set(1,0,0,1);
+                if (dist < 5) {
+                  object.system.particles[i].velocity.set(0,1,0);
+                  //object.system.particles[i].color.set(1,0,0,1);
                   //console.log(object.system.particles[i].position);
                 }
               }
@@ -132,7 +130,7 @@ class ParticleDemo {
             startSize: new IntervalValue(0.1*scaleFactor, 1*scaleFactor),
             //startSize: new IntervalValue(5*scaleFactor, 10*scaleFactor),
             startColor: new ConstantColor(new Vector4(0.9607843137254902, 0.8431372549019608, 0.027450980392156862, 1)),
-            worldSpace: false,
+            worldSpace: true,
             maxParticle: 6.0,
             //emissionOverTime: new ConstantValue(10),
             emissionOverTime: new IntervalValue(5.0,50.0),
@@ -236,8 +234,7 @@ class ParticleDemo {
 	
 	setPosition(pos)
 	{
-		if (this.batchRenderer)
-		{
+		if (this.batchRenderer)	{
 			this.batchRenderer.position.copy(pos);
 		}
 	}
@@ -389,7 +386,7 @@ export default () => {
       //var tmpPos = new Vector3();
       //tmpPos.copy(localPlayer.position);
       //tmpPos = tmpPos.add(app.position);
-      //demo.updateFirefly(localPlayer.position);
+      demo.updateFirefly(localPlayer.position);
       //demo.updateFirefly(tmpPos);
       demo.render(timeDiff);
 
