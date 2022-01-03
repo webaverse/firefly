@@ -205,6 +205,7 @@ class ParticleDemo {
 		//group.scale.set(0.01,0.01,0.01);
         this.scene.add(group);
         this.groups.push(group);
+        group.updateMatrixWorld();
 		
 		
 		
@@ -236,6 +237,7 @@ class ParticleDemo {
 	{
 		if (this.batchRenderer)	{
 			this.batchRenderer.position.copy(pos);
+            this.batchRenderer.updateMatrixWorld();
 		}
 	}
 	
