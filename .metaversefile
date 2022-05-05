@@ -1,4 +1,5 @@
 {
   "name": "firefly",
+  "description": "firefly",
   "start_url": "index.js"
 }
